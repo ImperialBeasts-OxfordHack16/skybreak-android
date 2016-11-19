@@ -5,7 +5,7 @@ public class Player : MonoBehaviour {
 
 	// The force which is added when the player jumps
 	// This can be changed in the Inspector window
-	public Vector2 jumpForce = new Vector2(0, 300);
+	public Vector2 jumpForce = new Vector2(0, 1000);
 
 	// Update is called once per frame
 	void Update ()
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
 
 	void Die()
 	{
+		
 		Application.LoadLevel(Application.loadedLevel);
 	}
 }
