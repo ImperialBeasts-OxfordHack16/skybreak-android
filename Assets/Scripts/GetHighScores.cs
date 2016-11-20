@@ -5,27 +5,21 @@ using System;
 
 [Serializable]
 public class PlayerStats {
-	private string name;
-	private int score;
+
+	public string name;
+	public int score;
 
 	public PlayerStats(string name, int score) {
 		this.name = name;
 		this.score = score;
 	}
 
-	public int getScore() {
-		return score;
-	}
-
-	public string getName() {
-		return name;
-	}
 }
 
 public class JsonHelper {
 	public static T[] getJsonArray<T>(string json) {
 		string newJson = "{ \"array\": " + json + "}";
-		Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>> (newJson);
+		Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(newJson);
 		return wrapper.array;
 	}
 
@@ -50,15 +44,14 @@ public class GetHighScores : MonoBehaviour {
 		string url = "skybreak.szekelyszilv.com:591/highscore";
 		WWW www = new WWW(url);
 		yield return www;
-		string jsonString = "";
 		if (www.error != null) {
 			Debug.LogError ("JSON data should not be empty!");
 		}
-		jsonString = www.text;
+		string jsonString = www.text;
 		PlayerStats[] allTopPlayers = JsonHelper.getJsonArray<PlayerStats>(jsonString);
 		for (int i = 0; i < 10; i++) {
-			score[i] = allTopPlayers[i].getScore();
-			name[i] = allTopPlayers[i].getName();
+			score[i] = allTopPlayers[i].score;
+			name[i] = allTopPlayers[i].name;
 		}
 	}
 
