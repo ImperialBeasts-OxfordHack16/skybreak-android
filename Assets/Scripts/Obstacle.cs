@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Obstacle : MonoBehaviour {
 
-	public Vector2 velocity = new Vector2(-5, 0);
+	public Vector2 velocity = new Vector2(-6, 0);
 	public float range = 4;
 
 	// Use this for initialization
