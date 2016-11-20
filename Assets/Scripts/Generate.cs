@@ -4,7 +4,6 @@ using System.Collections;
 public class Generate : MonoBehaviour {
 
 	public GameObject clouds;
-	int score = 0;
 
 	// Use this for initialization
 	void Start()
@@ -16,12 +15,12 @@ public class Generate : MonoBehaviour {
 	void OnGUI () 
 	{
 		GUI.color = Color.black;
-		GUILayout.Label(" Money earnt on this flight: " + score.ToString());
+		GUILayout.Label(" Total money: " + Menu.money.ToString());
 	}
 
 	void CreateObstacle()
 	{
 		Instantiate(clouds);
-		score+=5;
+		Menu.money+=5;
 	}
 }

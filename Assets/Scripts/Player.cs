@@ -33,6 +33,10 @@ public class Player : MonoBehaviour {
 
 	void Die()
 	{
-		Application.LoadLevel("Game");
+		if (Menu.money > 0) {
+			Application.LoadLevel ("departures");
+		} else {
+			Application.LoadLevel ("HighScores");
+		}
 	}
 }
