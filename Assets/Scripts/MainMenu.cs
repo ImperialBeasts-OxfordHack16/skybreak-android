@@ -8,8 +8,9 @@ public class Menu : MonoBehaviour
 	static public int money = 1000;
 
     public void LoadOn()
-    {
+	{
+		Screen.SetResolution(1080, 1920, true);
 		//DontDestroyOnLoad(money);
-        Application.LoadLevel(1);
+		Application.LoadLevel(1);
     }
 }
