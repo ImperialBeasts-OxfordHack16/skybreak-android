@@ -56,9 +56,17 @@ public class GetHighScores : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		for (int i = 0; i < 10; i++) {
-			GUILayout.Label((i + 1).ToString() + ". " + name[i] + " - " + score[i].ToString());
+//		GUILayout.BeginArea(new Rect(-2.57f, 1.68f, 4, 4));
+		GUILayout.BeginArea(new Rect(200, 100, 200, 200));
+		for (int i = 0; i < 5; i++) {
+			GUILayout.Box((i + 1).ToString() + ". " + name[i] + " - " + score[i].ToString());
 		}
+		GUILayout.EndArea();
+		GUILayout.BeginArea(new Rect(430, 100, 200, 200));
+		for (int i = 5; i < 10; i++) {
+			GUILayout.Box((i + 1).ToString() + ". " + name[i] + " - " + score[i].ToString());
+		}
+		GUILayout.EndArea();
 	}
 
 	// Update is called once per frame
